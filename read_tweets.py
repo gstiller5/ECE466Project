@@ -14,7 +14,7 @@ auth.set_access_token(access_token, access_secret)
 api = tweepy.API(auth)
 
 def read_tweets_elon():
-    muskTweets = api.user_timeline(screen_name='realDonaldTrump', count=200, include_rts=False)
+    muskTweets = api.user_timeline(screen_name='elonmusk', count=200, include_rts=False)
     tweets = []
     for x in muskTweets:
         tweets.append(x.text.split("`"))

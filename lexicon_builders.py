@@ -91,3 +91,4 @@ def build_men_lexicon():
         scores.append(score)
         # print(word + '    \t ' + score)
     return words, scores
+

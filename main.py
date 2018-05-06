@@ -13,10 +13,11 @@ lex_words = 0
 words = []
 scores = []
 # words, scores = build_standard_lexicon()
-words, scores = build_1850_lexicon()
+# words, scores = build_1850_lexicon()
 # words, scores = build_1900_lexicon()
 # words, scores = build_1950_lexicon()
 # words, scores = build_2000_lexicon()
+words, scores = build_women_lexicon()
 
 pos1 = 0
 neg1 = 0
@@ -29,8 +30,8 @@ scores1 = []
 # words1, scores1 = build_1850_lexicon()
 # words1, scores1 = build_1900_lexicon()
 # words1, scores1 = build_1950_lexicon()
-words1, scores1 = build_2000_lexicon()
-
+# words1, scores1 = build_2000_lexicon()
+words1, scores1 = build_men_lexicon()
 #set up the tweet list
 tweets = []
 # tweets = read_tweets_elon()
@@ -116,8 +117,8 @@ plt.bar(numpy.arange(3)*2+.8, [neg1, neu1, pos1])
 ax.set_xticks(numpy.arange(3)*2+.4)
 ax.set_xticklabels(["Negative", "Neutral", "Positive"])
 # plt.xticks(range(3), ["Positive", "Neutral", "Negative"])
-plt.title("Tweet Sentiment Analysis (1850 vs 2000 lexicon)")
-plt.legend(['1850', '2000'])
+plt.title("@realDonaldTrump Tweet Sentiment Analysis (AskWomen vs AskMen lexicon)")
+plt.legend(['AskWomen', 'AskMen'])
 plt.ylabel("# of Tweets")
 plt.xlabel('Sentiment')
 plt.show()
