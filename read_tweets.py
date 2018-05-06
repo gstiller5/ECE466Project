@@ -1,19 +1,28 @@
-from pandas import *
+import tweepy
+from tweepy import OAuthHandler
+# from tweepy import Stream
+# from tweepy.streaming import StreamListener
+
+consumer_key = 'hok2wO0GrKJ7szEQ5rwx9ycU4'
+consumer_secret = '1BdV005A5qbEIflaOFtxmapdA9bxEEzZO6m6D97rIfxcgzrwUO'
+access_token = '280777286-P2NQbEjOYm9SVDneEuyfoVkifSaklyCYyoipugze'
+access_secret = 'trg5XWVHIq5rJbD1WIDVIaZBltw6s8SLxGhnpdAWV2tp5'
+
+auth = OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_secret)
+
+api = tweepy.API(auth)
 
 def read_tweets_elon():
-    file = open('elonmusk_tweets.csv', 'rb')
-    file_list = read_csv(file)
+    muskTweets = api.user_timeline(screen_name='realDonaldTrump', count=200, include_rts=False)
     tweets = []
-    for line in file_list["text"]:
-        line = line[2:-1]
-        tweets.append([line])
-        # print(line)
+    for x in muskTweets:
+        tweets.append(x.text.split("`"))
     return tweets
 
 def read_tweets_donald():
-    file = open('trump_tweets.csv', 'rb')
-    file_list = read_csv(file)
+    trumpTweets = api.user_timeline(screen_name='realDonaldTrump', count=200, include_rts=False)
     tweets = []
-    for line in file_list["text"]:
-        tweets.append([line])
+    for x in trumpTweets:
+        tweets.append(x.text.split("`"))
     return tweets
